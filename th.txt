@@ -14,3 +14,51 @@ folder structure:
 
 nodemon app.js
 
+
+app.js --> routes --> controller [models]
+
+routes : app.js <--> controller
+controller : api functions --> business logic
+models : database schema
+
+10 tables:
+
+mongodb database:
+
+SQL                                    NOSQL
+mysql                                   mongodb
+oracle
+postgres..                  
+
+
+table                               document --> json
+
+
+mongodb -->ORM package - mongoose
+
+
+npm install mongoose
+
+
+mongoose :
+
+25_node_internship : databse....
+
+mongodb : table[collectoin]
+
+app.js -->roleRoutes -->roleCont
+
+
+
+
+
+
+
+src:
+    controller: api logic: functions
+    models    : schema : collectoin -->controller
+    routes    : end point --> controller function n
+    utils     : utility functions.....
+
+
+

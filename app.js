@@ -1,24 +1,18 @@
 const express = require("express") //express....
+const mongoose = require("mongoose")
 //express object..
 const app = express()
 
-//https://node5.onrender.com/user/user : domain + endpoints
-//http://localhost:3000/test
-app.get("/test",(req,res)=>{
-    
-    console.log("test api called...")
 
-    res.send("hello test api called...")
+//import role routes
 
-})
+const roleRoutes = require("./src/routes/RoleRoutes")
+app.use(roleRoutes)
 
-//http://localhost:3000/users
-app.get("/users",(req,res)=>{
 
-    res.json({
-        message:"user api called...",
-        data:["ram","shyam","seeta"]
-    })
+
+mongoose.connect("mongodb://127.0.0.1:27017/25_node_internship").then(()=>{
+    console.log("database connected....")
 })
 
 
