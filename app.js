@@ -9,6 +9,10 @@ app.use(express.json()) //to accept data as json...
 const roleRoutes = require("./src/routes/RoleRoutes")
 app.use(roleRoutes)
 
+//userRoutes
+const userRoutes = require("./src/routes/UserRoutes")
+app.use(userRoutes)
+
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/25_node_internship").then(()=>{
