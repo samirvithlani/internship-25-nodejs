@@ -49,6 +49,22 @@ mongodb : table[collectoin]
 app.js -->roleRoutes -->roleCont
 
 
+employee
+id name email age
+..
+1000...
+
+alter:
+id name email age gender
+                   null
+
+{
+    _id:,name,age
+}                   
+
+{
+    _id:,name,age,gender
+}                
 
 
 
@@ -59,6 +75,11 @@ src:
     models    : schema : collectoin -->controller
     routes    : end point --> controller function n
     utils     : utility functions.....
+
+POST:    
+
+
+postman: -->Body -->raw
 
 
 

@@ -2,10 +2,10 @@ const express = require("express") //express....
 const mongoose = require("mongoose")
 //express object..
 const app = express()
+app.use(express.json()) //to accept data as json...
 
 
 //import role routes
-
 const roleRoutes = require("./src/routes/RoleRoutes")
 app.use(roleRoutes)
 
