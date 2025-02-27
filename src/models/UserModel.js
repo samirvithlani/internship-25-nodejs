@@ -13,7 +13,12 @@ const userSchema = new Schema({
         type:Number
     },
     status:{
-        tpye:Boolean
+        type:Boolean
+    },
+    roleId:{
+        type:Schema.Types.ObjectId, //batugasoijkadsasiksaj
+        ref:"roles"
+
     }
 
 })

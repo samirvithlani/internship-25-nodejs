@@ -81,5 +81,32 @@ POST:
 
 postman: -->Body -->raw
 
+role:
+user:
+
+local serveice: admin,serveiceProvide,user
+projecamanr : Develioe,manager,tester,...
+--------------------------------------------
+
+role: pk roleId
+
+user table:
+roleId fk
+
+joins:select * from users natural join roles;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
