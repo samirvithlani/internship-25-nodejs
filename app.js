@@ -1,7 +1,9 @@
 const express = require("express") //express....
 const mongoose = require("mongoose")
+const cors = require("cors")
 //express object..
 const app = express()
+app.use(cors()) // *
 app.use(express.json()) //to accept data as json...
 
 
