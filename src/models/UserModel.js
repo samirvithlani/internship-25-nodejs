@@ -13,7 +13,8 @@ const userSchema = new Schema({
         type:Number
     },
     status:{
-        type:Boolean
+        type:Boolean,
+        default:true
     },
     roleId:{
         type:Schema.Types.ObjectId, //batugasoijkadsasiksaj
