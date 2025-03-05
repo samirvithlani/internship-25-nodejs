@@ -22,4 +22,18 @@ const getAreas = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
-module.exports = { addArea, getAreas };
+
+const getAreaBycityId = async (req, res) => {
+  try {
+    const areas = await areaModel.find({ cityId: req.params.cityId });
+    res.status(200).json({
+      message: "area found",
+      data: areas,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: err,
+    });
+  }
+};
+module.exports = { addArea, getAreas,getAreaBycityId };
