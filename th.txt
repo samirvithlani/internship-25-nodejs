@@ -96,6 +96,22 @@ roleId fk
 joins:select * from users natural join roles;
 
 
+file upload :
+
+local file sytem : server side..
+
+database : binary data
+server : file system
+cloud : s3 bucket-aws,cloudinary,google cloud storage
+
+live bucket file
+
+
+
+fileupload --> image --> cloudanry: -->respinse ---> url : url -->database...
+
+cloudanry: signup with google -->
+find api key:
 
 
 
