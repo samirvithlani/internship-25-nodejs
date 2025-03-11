@@ -47,6 +47,24 @@ const getAllHordings = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+const getAllHordingsByUserId = async (req, res) => {
+  
+  try {
+    const hordings = await hordingModel
+      .find({userId:req.params.userId})
+      .populate("stateId cityId areaId userId");
+    if (hordings.length === 0) {
+      res.status(404).json({ message: "No hordings found" });
+    } else {
+      res.status(200).json({
+        message: "Hording found successfully",
+        data: hordings,
+      });
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 // const addHordingWithFile = async (req, res) => {
 //   upload(req, res, (err) => {
@@ -69,6 +87,7 @@ const getAllHordings = async (req, res) => {
 const addHordingWithFile = async (req, res) => {
   upload(req, res, async (err) => {
     if (err) {
+      console.log(err);
       res.status(500).json({
         message: err.message,
       });
@@ -92,4 +111,4 @@ const addHordingWithFile = async (req, res) => {
   });
 };
 
-module.exports = { addHording, getAllHordings, addHordingWithFile };
+module.exports = { addHording, getAllHordings, addHordingWithFile,getAllHordingsByUserId };
