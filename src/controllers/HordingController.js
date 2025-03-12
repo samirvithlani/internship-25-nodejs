@@ -48,10 +48,9 @@ const getAllHordings = async (req, res) => {
   }
 };
 const getAllHordingsByUserId = async (req, res) => {
-  
   try {
     const hordings = await hordingModel
-      .find({userId:req.params.userId})
+      .find({ userId: req.params.userId })
       .populate("stateId cityId areaId userId");
     if (hordings.length === 0) {
       res.status(404).json({ message: "No hordings found" });
@@ -95,20 +94,68 @@ const addHordingWithFile = async (req, res) => {
       // database data store
       //cloundinary
 
-      const cloundinaryResponse = await cloudinaryUtil.uploadFileToCloudinary(req.file);
+      const cloundinaryResponse = await cloudinaryUtil.uploadFileToCloudinary(
+        req.file
+      );
       console.log(cloundinaryResponse);
       console.log(req.body);
 
       //store data in database
-      req.body.hordingURL = cloundinaryResponse.secure_url
+      req.body.hordingURL = cloundinaryResponse.secure_url;
       const savedHording = await hordingModel.create(req.body);
 
       res.status(200).json({
         message: "hording saved successfully",
-        data: savedHording
+        data: savedHording,
       });
     }
   });
 };
 
-module.exports = { addHording, getAllHordings, addHordingWithFile,getAllHordingsByUserId };
+const updateHording = async (req, res) => {
+  //update tablename set  ? where id = ?
+  //update new data -->req.body
+  //id -->req.params.id
+
+  try {
+    const updatedHording = await hordingModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json({
+      message: "Hording updated successfully",
+      data: updatedHording,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "error while update hording",
+      err: err,
+    });
+  }
+};
+
+const getHordingById= async(req,res)=>{
+  try {
+    const hording = await hordingModel.findById(req.params.id);
+    if (!hording) {
+      res.status(404).json({ message: "No hording found" });
+    } else {
+      res.status(200).json({
+        message: "Hording found successfully",
+        data: hording,
+      });
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}
+
+module.exports = {
+  addHording,
+  getAllHordings,
+  addHordingWithFile,
+  getAllHordingsByUserId,
+  updateHording,
+  getHordingById
+};
