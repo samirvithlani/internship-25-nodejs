@@ -112,7 +112,7 @@ fileupload --> image --> cloudanry: -->respinse ---> url : url -->database...
 
 cloudanry: signup with google -->
 find api key:
-
+npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 
 
 
