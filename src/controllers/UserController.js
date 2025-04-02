@@ -46,6 +46,42 @@ const loginUser = async (req, res) => {
   }
 };
 
+
+const loginuserWithToken = async(req,res)=>{
+
+  const {email,password} = req.body;
+
+  const foundUserFromEmail =  await userModel.findOne({email:email})
+  if(foundUserFromEmail){
+    const isMatch = bcrypt.compareSync(password,foundUserFromEmail.password)
+    if(isMatch){
+
+      //token...
+      const token = jwt.sign(foundUserFromEmail.toObject(),secret)
+      //const token = jwt.sign({id:foundUserFromEmail._id},secret)
+      res.status(200).json({
+        message:"user loggedin..",
+        token:token
+      })
+      
+
+    }
+    else{
+      res.status(420).json({
+        message:"invalid cred..."
+      })
+    }
+
+  }
+  else{
+    res.status(404).json({
+      message:"user not found.."
+    })
+  }
+}
+
+
+
 const signup = async (req, res) => {
   //try catch if else...
   try {
@@ -157,7 +193,8 @@ module.exports = {
   signup,
   loginUser,
   forgotPassword,
-  resetpassword
+  resetpassword,
+  loginuserWithToken
 };
 
 //addUser

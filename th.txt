@@ -130,9 +130,17 @@ Authe:
 update user set password ="knasbkasjs" where email =?
 token...
 
+oauth --> Auth | AUTHOrizaation
 
 
+userFromemail --> object... 
 
+token : id
+
+id-->object
+
+
+middleware: --> filter --> controller token verify... :
 
 
 
