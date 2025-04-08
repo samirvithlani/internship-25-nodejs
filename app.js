@@ -29,6 +29,8 @@ app.use("/area",areaRoutes) //http://localhost:3000/area/add
 const hordingRoutes = require("./src/routes/HordingRoutes")
 app.use("/hording",hordingRoutes) //http://localhost:3000/hording/add
 
+const paymentRoutes = require("./src/routes/PaymentRoutes")
+app.use("/payment", paymentRoutes) //http://localhost:3000/payment/create_order
 
 mongoose.connect("mongodb://127.0.0.1:27017/25_node_internship").then(()=>{
     console.log("database connected....")
