@@ -112,10 +112,35 @@ fileupload --> image --> cloudanry: -->respinse ---> url : url -->database...
 
 cloudanry: signup with google -->
 find api key:
+npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 
 
+api -->forgotpoassword api
+frontend: forgotpoassword --> email --> post apo --> req.body --> database user
+if user found --> token ---> email -->
+if not found -->response --> user not found...
+
+TOKEN :- jwt : jsonwebtoken
+auth2 -->
+
+AUTHOrizaation:
+Authe:
 
 
+update user set password ="knasbkasjs" where email =?
+token...
+
+oauth --> Auth | AUTHOrizaation
+
+
+userFromemail --> object... 
+
+token : id
+
+id-->object
+
+
+middleware: --> filter --> controller token verify... :
 
 
 
